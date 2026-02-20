@@ -1,0 +1,151 @@
+.fondoSistema{
+    -fx-background-color: #5069f1;
+}
+
+/*
+    ================================
+    B O T O N E S
+    ================================
+*/
+.button{
+    -fx-background-color: rgba(53, 44, 222,0.5);
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 60px;
+    -fx-cursor: hand;
+}
+.button:hover{
+    -fx-background-color: rgba(53, 44, 222,0.8);
+}
+.button:pressed{
+    -fx-background-color: rgba(53, 44, 222,1.0);
+}
+
+/*
+    ==============================
+    Text fields / Inputs
+    ==============================
+*/
+
+.text-field {
+    -fx-pref-height: 25px;
+}
+.text-field, .text-area, .date-picker, .combo-box {
+    /*-fx-background-color: transparent;       /* Fondo transparente */
+    -fx-background-color: rgba(21, 16, 131, 0.1);
+    -fx-border-color: #cccccc;               /* Gris suave por defecto */
+    -fx-border-width: 0 0 1px 0;             /* Solo una línea inferior */
+    -fx-text-fill: white;                  /* Color del texto */
+    -fx-font-size: 14px;                     /* Tamaño de fuente */
+    -fx-font-weight: bold;
+    -fx-padding: 8 4 6 4;                    /* Espaciado interior */
+    -fx-background-radius: 0;                /* Sin bordes redondeados */
+    -fx-border-radius: 0;
+    -fx-focus-color: transparent;            /* Evita el borde azul por defecto */
+}
+
+/* Cuando el TextField está enfocado */
+.text-field:focused, .text-area:focused, .date-picker:focused, .combo-box:focused {
+    -fx-background-color: rgba(21, 16, 131, 0.2);
+    -fx-border-color: #00b3ff;               /* verde moderno */
+    -fx-border-width: 0 0 2px 0;             /* Línea inferior un poco más gruesa */
+    -fx-text-fill: white;                  /* Texto más oscuro */
+}
+
+/* Placeholder (texto dentro cuando está vacío) */
+.text-field .text, .text-area .text, .date-picker .text, .combo-box .text{
+    -fx-fill: #555555;                       /* Color del texto */
+}
+
+/*
+    ============================
+    COMBO BOX y CHOICE BOX
+    ============================
+*/
+
+.combo-box, .choice-box {
+    /*-fx-background-color: transparent;       /* Fondo transparente */
+    -fx-background-color: rgba(53, 44, 222, 0.1);
+    -fx-border-color: #cccccc;               /* Gris suave por defecto */
+    -fx-border-width: 0 0 1px 0;             /* Solo una línea inferior */
+    -fx-text-fill: white;                  /* Color del texto */
+    -fx-font-size: 8px;                     /* Tamaño de fuente */
+    -fx-font-weight: bold;
+    -fx-padding: 8 4 6 4;                    /* Espaciado interior */
+    -fx-background-radius: 0;                /* Sin bordes redondeados */
+    -fx-border-radius: 0;
+    -fx-focus-color: transparent;            /* Evita el borde azul por defecto */
+    -fx-height: 10px;
+}
+
+/* Cuando el TextField está enfocado */
+.combo-box:focused,.choice-box:focused {
+    -fx-background-color: rgba(53, 44, 222, 0.2);
+    -fx-border-color: #00b3ff;                /* verde moderno */
+    -fx-border-width: 0 0 2px 0;             /* Línea inferior un poco más gruesa */
+    -fx-text-fill: white;                  /* Texto más oscuro */
+}
+
+/* Placeholder (texto dentro cuando está vacío) */
+.combo-box .text, .choice-box .text{
+    -fx-fill: white;                       /* Color del texto */
+}
+.combo-box .arrow, .choice-box .arrow {
+    -fx-background-color: #00b3ff;       /* Flecha moderna */
+    -fx-shape: "M0 0 L4 4 L8 0 Z";       /* Flecha hacia abajo */
+}
+
+.combo-box:editable .arrow {
+    -fx-background-color: #31c793;
+    -fx-shape: "M0 0 L4 4 L8 0 Z";
+}
+
+.combo-box:editable .arrow-button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0 6 0 6;
+    -fx-border-color: transparent;
+}
+
+.combo-box-popup, .choice-box .context-menu {
+    /*-fx-background-color: rgba(255, 255, 255, 0.9);*/
+    -fx-background-color: #2C3E50;
+    -fx-border-color: #00b3ff;
+    -fx-border-radius: 2px;
+}
+/* Opciones del ComboBox */
+.combo-box-popup .list-cell, .choice-box .context-menu .menu-item {
+    -fx-background-color: #2C3E50;
+
+}
+.combo-box-popup .list-cell:hover, .choice-box .context-menu .menu-item:hover {
+    -fx-background-color: rgba(49, 199, 147, 1);
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #2C3E50;  /* Quita el fondo blanco */
+    -fx-border-color: #00b3ff;
+    -fx-border-radius: 4px;
+}
+
+.choice-box .context-menu .container {
+    -fx-background-color: transparent;
+}
+
+.combo-box:editable .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-control-inner-background: transparent;
+
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+
+    -fx-text-fill: white; /* color de texto que quieras */
+    -fx-font-weight: bold;
+}
+
+.text-label-error{
+    -fx-border-color: red;
+}
