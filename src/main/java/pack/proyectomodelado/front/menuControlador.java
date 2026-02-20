@@ -1,9 +1,9 @@
-package examplepack.proyectomodelado;
+package pack.proyectomodelado.front;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class menuControlador {
     @FXML
     private Label welcomeText;
 

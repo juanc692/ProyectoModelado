@@ -1,4 +1,4 @@
-module examplepack.proyectomodelado {
+module pack.proyectomodelado {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -11,6 +11,8 @@ module examplepack.proyectomodelado {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens examplepack.proyectomodelado to javafx.fxml;
-    exports examplepack.proyectomodelado;
+    opens pack.proyectomodelado to javafx.fxml;
+    exports pack.proyectomodelado;
+    exports pack.proyectomodelado.front;
+    opens pack.proyectomodelado.front to javafx.fxml;
 }
