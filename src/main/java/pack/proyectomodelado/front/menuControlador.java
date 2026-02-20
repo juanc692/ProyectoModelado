@@ -24,7 +24,7 @@ public class menuControlador {
 
 
         iniciarSesion.setOnAction(actionEvent -> {
-            Navegador.setStageSize(1280,720);
+            Navegador.setStageSize(1280,740);
             Navegador.load("interfazPrincipal");
         });
     }
