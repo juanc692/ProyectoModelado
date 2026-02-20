@@ -10,6 +10,7 @@ module pack.proyectomodelado {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires javafx.graphics;
 
     opens pack.proyectomodelado to javafx.fxml;
     exports pack.proyectomodelado;
