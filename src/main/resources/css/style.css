@@ -149,3 +149,10 @@
 .text-label-error{
     -fx-border-color: red;
 }
+
+.GridPane {
+    -fx-background-color: rgba(60, 80, 200, 0.6);
+}
+.label {
+    -fx-text-fill: white;
+}
