@@ -19,7 +19,7 @@ public class Launcher extends Application {
         stage.getIcons().add(img);
 
         scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
-
+        stage.setResizable(false);
         stage.show();
     }
 }

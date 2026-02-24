@@ -28,17 +28,17 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="welcomeText" text="Usuario" textFill="WHITE">
+            <Label fx:id="welcomeText" text="Correo" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <TextField />
+            <TextField fx:id="usuario" />
             <Label text="Contraseña" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <PasswordField />
-            <Button fx:id="iniciarSesion" mnemonicParsing="false" prefWidth="150.0" text="Iniciar sesion" />
+            <PasswordField fx:id="contrase" />
+            <Button fx:id="iniciarSesion" mnemonicParsing="false" prefWidth="150.0" text="Ingresar" />
          </children>
       </VBox>
    </children>

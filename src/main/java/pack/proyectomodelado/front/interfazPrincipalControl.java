@@ -1,10 +1,7 @@
 package pack.proyectomodelado.front;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import pack.proyectomodelado.entidades.evento;
 
@@ -13,6 +10,8 @@ import java.util.Optional;
 
 public class interfazPrincipalControl {
 
+    public ChoiceBox boxEventos;
+    public ChoiceBox boxUbicacion;
     @FXML
     private Button btnCrearEvento;
     @FXML
