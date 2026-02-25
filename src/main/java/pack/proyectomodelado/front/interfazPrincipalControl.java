@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import pack.proyectomodelado.entidades.evento;
+import pack.proyectomodelado.entidades.usuario;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -33,12 +34,16 @@ public class interfazPrincipalControl {
     @FXML
     private Button btnBuscar;
     @FXML TextField fieldBuscar;
+    @FXML ComboBox comboFiltroEvento;
+    @FXML Button btnEliminarFiltros;
 
 
     private ArrayList <evento> listaEventos = new ArrayList<>();
     private int columna = 0;
     private int fila = 0;
     private int contadorFila=3;
+
+    private usuario perfilUsuario = new usuario("Bogota");
 
     @FXML
     public void initialize(){
@@ -53,29 +58,50 @@ public class interfazPrincipalControl {
         });
         btnCrear.setOnAction(e->{
             anadirEvento();
+            mostrarEventos();
         });
         btnBuscar.setOnAction(e->{
             filtrosEventos(fieldBuscar.getText());
         });
+        comboFiltroEvento.setOnAction(e->{
+            filtroCategoria();
+        });
+
+        btnEliminarFiltros.setOnAction(e->{
+            comboFiltroEvento.getSelectionModel().clearSelection();
+            mostrarEventos();
+        });
 
     }
 
-    private void mostrarFormulario(){
-        anchorPrincipal.setVisible(false);
-        anchorPrincipal.setDisable(true);
-
-        anchorFormulario.setVisible(true);
-        anchorFormulario.setDisable(false);
+    private void filtroCategoria(){
+        limpiarEventosGridPane();
+        for (evento e : listaEventos){
+            if (e.getCategoria().equals(comboFiltroEvento.getValue().toString())){
+                modificarGridPane(e.getCiudad(),e.getNombre(),e.getCategoria(),e.getPrecioEntrada());
+            }
+        }
     }
 
-    private void ocultarFormulario(){
-        anchorPrincipal.setVisible(true);
-        anchorPrincipal.setDisable(false);
+    private void filtrosEventos(String nombreBusqueda){
+        limpiarEventosGridPane();
 
-        anchorFormulario.setVisible(false);
-        anchorFormulario.setDisable(true);
+        if (!nombreBusqueda.equals("")){
+            if (comboFiltroEvento.getValue() !=null){
+                for (evento e : listaEventos){
+                    if (e.getCategoria().equals(comboFiltroEvento.getValue().toString()) && e.getNombre().equals(nombreBusqueda)){
+                        modificarGridPane(e.getCiudad(),e.getNombre(),e.getCategoria(),e.getPrecioEntrada());
+                    }
+                }
+            }else {
+                for (evento e : listaEventos){
+                    if (e.getNombre().equals(nombreBusqueda)){
+                        modificarGridPane(e.getCiudad(),e.getNombre(),e.getCategoria(),e.getPrecioEntrada());
+                    }
+                }
+            }
+        }
 
-        filtrosEventos("");
     }
 
     private  void modificarGridPane(String ciudad, String nombre, String categoria, float precios){
@@ -114,26 +140,6 @@ public class interfazPrincipalControl {
             contadorFila = contadorFila + 3;
         }
     }
-    
-    private void filtrosEventos(String nombreBusqueda){
-        gridEventos.getChildren().clear();
-
-        if (!nombreBusqueda.equals("")){
-            for (evento e : listaEventos){
-                if (e.getNombre().equals(nombreBusqueda)){
-                    modificarGridPane(e.getCiudad(),e.getNombre(),e.getCategoria(),e.getPrecioEntrada());
-                }
-            }
-        }else {
-            for (evento e : listaEventos){
-                modificarGridPane(e.getCiudad(),e.getNombre(),e.getCategoria(),e.getPrecioEntrada());
-            }
-        }
-
-
-
-
-    }
 
     private void anadirEvento(){
         try {
@@ -148,5 +154,39 @@ public class interfazPrincipalControl {
         }
 
     }
+
+    //region metodos auxiliares
+    private void mostrarEventos(){
+        limpiarEventosGridPane();
+        for (evento e: listaEventos){
+            modificarGridPane(e.getCiudad(),e.getNombre(),e.getCategoria(),e.getPrecioEntrada());
+        }
+    }
+
+    private void limpiarEventosGridPane(){
+        gridEventos.getChildren().clear();
+        columna=0;
+        contadorFila=3;
+    }
+
+    private void mostrarFormulario(){
+        anchorPrincipal.setVisible(false);
+        anchorPrincipal.setDisable(true);
+
+        anchorFormulario.setVisible(true);
+        anchorFormulario.setDisable(false);
+    }
+
+    private void ocultarFormulario(){
+        anchorPrincipal.setVisible(true);
+        anchorPrincipal.setDisable(false);
+
+        anchorFormulario.setVisible(false);
+        anchorFormulario.setDisable(true);
+
+        mostrarEventos();
+    }
+    //endregion
+
 
 }
