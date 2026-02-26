@@ -11,6 +11,7 @@ module pack.proyectomodelado {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires javafx.graphics;
+    requires jakarta.mail;
 
     opens pack.proyectomodelado to javafx.fxml;
     exports pack.proyectomodelado;

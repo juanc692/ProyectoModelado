@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Proyecto">
+    <output-path>$PROJECT_DIR$/out/artifacts/Proyecto</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="pack.proyectomodelado.Launcher" />
+        <option name="description" value="Aplicacion de prueba en Java por Juan David Pico y Erik Santiago Rodriguez " />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="icons">
+          <JavaFxApplicationIcons>
+            <option name="windowsIcon" value="$PROJECT_DIR$/src/main/resources/images/favicon.ico" />
+          </JavaFxApplicationIcons>
+        </option>
+        <option name="nativeBundle" value="exe" />
+        <option name="title" value="PARCHADOS" />
+        <option name="vendor" value="" />
+        <option name="version" value="1.0" />
+      </options>
+    </properties>
+    <root id="root" />
+  </artifact>
+</component>

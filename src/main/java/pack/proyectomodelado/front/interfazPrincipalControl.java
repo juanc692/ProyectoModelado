@@ -11,8 +11,8 @@ import java.util.Optional;
 
 public class interfazPrincipalControl {
 
-    public ChoiceBox boxEventos;
-    public ChoiceBox boxUbicacion;
+    public ComboBox comboUbicacion;
+    public Button btnCancelar;
     @FXML
     private Button btnCrearEvento;
     @FXML
@@ -51,6 +51,9 @@ public class interfazPrincipalControl {
         col.setHgrow(Priority.ALWAYS);
         col.setFillWidth(true);
 
+        comboFiltroEvento.setPromptText("Tipo Evento");
+        comboUbicacion.setPromptText("Ubicación");
+
         gridEventos.getColumnConstraints().add(col);
 
         btnCrearEvento.setOnAction(e->{
@@ -60,15 +63,25 @@ public class interfazPrincipalControl {
             anadirEvento();
             mostrarEventos();
         });
+        btnCancelar.setOnAction(e->{
+            ocultarFormulario();
+            mostrarEventos();
+        });
         btnBuscar.setOnAction(e->{
             filtrosEventos(fieldBuscar.getText());
         });
         comboFiltroEvento.setOnAction(e->{
             filtroCategoria();
         });
+        comboUbicacion.setOnAction(e->{
+            filtroCiudad();
+        });
 
         btnEliminarFiltros.setOnAction(e->{
-            comboFiltroEvento.getSelectionModel().clearSelection();
+
+            comboFiltroEvento.setValue(null);
+            comboUbicacion.setValue(null);
+
             mostrarEventos();
         });
 
@@ -76,17 +89,35 @@ public class interfazPrincipalControl {
 
     private void filtroCategoria(){
         limpiarEventosGridPane();
-        for (evento e : listaEventos){
-            if (e.getCategoria().equals(comboFiltroEvento.getValue().toString())){
-                modificarGridPane(e.getCiudad(),e.getNombre(),e.getCategoria(),e.getPrecioEntrada());
+        if(!comboFiltroEvento.getItems().isEmpty()) {
+            for (evento e : listaEventos) {
+                if (e.getCategoria().equals(comboFiltroEvento.getValue().toString())) {
+                    modificarGridPane(e.getCiudad(), e.getNombre(), e.getCategoria(), e.getPrecioEntrada());
+                }
             }
         }
+    }
+
+    private void filtroCiudad()
+    {
+        limpiarEventosGridPane();
+        if(!comboUbicacion.getItems().isEmpty())
+        {
+            for(evento e : listaEventos)
+            {
+                if(e.getCiudad().equals(comboUbicacion.getValue().toString()))
+                {
+                    modificarGridPane(e.getCiudad(),e.getNombre(),e.getCategoria(),e.getPrecioEntrada());
+                }
+            }
+        }
+
     }
 
     private void filtrosEventos(String nombreBusqueda){
         limpiarEventosGridPane();
 
-        if (!nombreBusqueda.equals("")){
+        if (!nombreBusqueda.isEmpty()){
             if (comboFiltroEvento.getValue() !=null){
                 for (evento e : listaEventos){
                     if (e.getCategoria().equals(comboFiltroEvento.getValue().toString()) && e.getNombre().equals(nombreBusqueda)){
